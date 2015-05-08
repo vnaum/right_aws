@@ -239,6 +239,7 @@ module RightAws
       request_hash['LaunchSpecification.RamdiskId']      = options[:ramdisk_id]                     unless options[:ramdisk_id].right_blank?
       request_hash['LaunchSpecification.SubnetId']       = options[:subnet_id]                      unless options[:subnet_id].right_blank?
       request_hash['LaunchSpecification.Placement.AvailabilityZone'] = options[:availability_zone]  unless options[:availability_zone].right_blank?
+      request_hash['LaunchSpecification.Placement.GroupName'] = options[:placement_group]           unless options[:placement_group].right_blank?
       request_hash['LaunchSpecification.Monitoring.Enabled']         = options[:monitoring_enabled] unless options[:monitoring_enabled].right_blank?
       request_hash.merge!(amazonize_list('LaunchSpecification.SecurityGroup', options[:groups]))    unless options[:groups].right_blank?
       request_hash.merge!(amazonize_block_device_mappings(options[:block_device_mappings], 'LaunchSpecification.BlockDeviceMapping'))
